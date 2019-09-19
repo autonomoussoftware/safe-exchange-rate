@@ -1,0 +1,55 @@
+{
+  "name": "safe-exchange-rate",
+  "version": "1.0.0",
+  "description": "Safely get exchange rates",
+  "keywords": [
+    "exchange",
+    "fallback",
+    "rate",
+    "safe"
+  ],
+  "license": "MIT",
+  "author": "Gabriel Montes <gabriel@bloq.com>",
+  "files": [
+    "src"
+  ],
+  "main": "src/index.js",
+  "repository": "autonomoussoftware/safe-exchange-rate",
+  "scripts": {
+    "check": "dependency-check . && dependency-check . --unused --no-dev",
+    "check:outdated": "npm-check -i husky",
+    "coverage": "nyc --lines 95 --functions 95 --branches 95 --reporter=lcov --reporter=text npm test",
+    "lint": "eslint --cache .",
+    "prepublishOnly": "tag-matches",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bittrex-node": "^1.2.1",
+    "coingecko-api": "^1.0.5",
+    "debug": "^4.1.1",
+    "promise-find": "^1.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "check-tag-matches": "^1.0.0",
+    "dependency-check": "^4.1.0",
+    "eslint": "^6.4.0",
+    "eslint-config-bloq": "^2.1.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsdoc": "^15.9.2",
+    "eslint-plugin-mocha": "^6.1.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prefer-arrow": "^1.1.5",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-require-path-exists": "^1.1.9",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.5",
+    "mocha": "^6.0.1",
+    "nock": "^11.3.4",
+    "npm-check": "^5.9.0",
+    "nyc": "^14.1.1"
+  }
+}
