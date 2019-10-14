@@ -44,6 +44,7 @@ function getExchangeRate(pair) {
       return promiseFind(
         [
           () => bittrex.getTickerValue('USD-ETC'),
+          () => coincap.getAsset('ethereum-classic'),
           () => coingecko.getCoinPrice('ethereum-classic')
         ].map(ignoreFailure)
       )

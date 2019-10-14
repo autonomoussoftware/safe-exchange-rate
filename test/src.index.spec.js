@@ -41,6 +41,13 @@ describe('Get exchange rates', function () {
     })
   })
 
+  it('should get ETC exchange rate from CoinCap', function () {
+    nock.enableNetConnect('api.coincap.io')
+    return getExchangeRate('ETC:USD').then(function (rate) {
+      chai.expect(rate).be.a('number')
+    })
+  })
+
   it('should get ETC exchange rate from CoinGecko', function () {
     nock.enableNetConnect('api.coingecko.com')
     return getExchangeRate('ETC:USD').then(function (rate) {
