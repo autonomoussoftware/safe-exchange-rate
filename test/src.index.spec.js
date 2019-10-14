@@ -16,50 +16,35 @@ describe('Get exchange rates', function () {
   it('should get ETH exchange rate from Bittrex', function () {
     nock.enableNetConnect('bittrex.com')
     return getExchangeRate('ETH:USD').then(function (rate) {
-      chai
-        .expect(rate)
-        .be.a('number')
-        .closeTo(200, 100)
+      chai.expect(rate).be.a('number')
     })
   })
 
   it('should get ETH exchange rate from CoinCap', function () {
     nock.enableNetConnect('api.coincap.io')
     return getExchangeRate('ETH:USD').then(function (rate) {
-      chai
-        .expect(rate)
-        .be.a('number')
-        .closeTo(200, 100)
+      chai.expect(rate).be.a('number')
     })
   })
 
   it('should get ETH exchange rate from CoinGecko', function () {
     nock.enableNetConnect('api.coingecko.com')
     return getExchangeRate('ETH:USD').then(function (rate) {
-      chai
-        .expect(rate)
-        .be.a('number')
-        .closeTo(200, 100)
+      chai.expect(rate).be.a('number')
     })
   })
 
   it('should get ETC exchange rate from Bittrex', function () {
     nock.enableNetConnect('bittrex.com')
     return getExchangeRate('ETC:USD').then(function (rate) {
-      chai
-        .expect(rate)
-        .be.a('number')
-        .closeTo(10, 5)
+      chai.expect(rate).be.a('number')
     })
   })
 
   it('should get ETC exchange rate from CoinGecko', function () {
     nock.enableNetConnect('api.coingecko.com')
     return getExchangeRate('ETC:USD').then(function (rate) {
-      chai
-        .expect(rate)
-        .be.a('number')
-        .closeTo(10, 5)
+      chai.expect(rate).be.a('number')
     })
   })
 
