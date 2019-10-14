@@ -55,6 +55,20 @@ describe('Get exchange rates', function () {
     })
   })
 
+  it('should get QTUM exchange rate from CoinCap', function () {
+    nock.enableNetConnect('api.coincap.io')
+    return getExchangeRate('QTUM:USD').then(function (rate) {
+      chai.expect(rate).be.a('number')
+    })
+  })
+
+  it('should get QTUM exchange rate from CoinGecko', function () {
+    nock.enableNetConnect('api.coingecko.com')
+    return getExchangeRate('QTUM:USD').then(function (rate) {
+      chai.expect(rate).be.a('number')
+    })
+  })
+
   it('should fail if the exchange pair is not supported', function () {
     return getExchangeRate('BSV:USD').should.rejectedWith('not supported')
   })

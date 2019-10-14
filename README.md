@@ -11,6 +11,7 @@ The following exchange rate pairs are currently supported:
 
 - ETH:USD
 - ETC:USD
+- QTUM:USD
 
 Only 100% open and free providers are queried:
 

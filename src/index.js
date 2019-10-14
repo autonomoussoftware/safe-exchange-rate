@@ -48,6 +48,13 @@ function getExchangeRate(pair) {
           () => coingecko.getCoinPrice('ethereum-classic')
         ].map(ignoreFailure)
       )
+    case 'QTUM:USD':
+      return promiseFind(
+        [
+          () => coincap.getAsset('qtum'),
+          () => coingecko.getCoinPrice('qtum')
+        ].map(ignoreFailure)
+      )
     default:
       return Promise.reject(new Error('Exchange rate pair not supported'))
   }
