@@ -15,9 +15,9 @@ The following exchange rate pairs are currently supported:
 
 Only 100% open and free providers are queried:
 
-- [Bittrex](bittrex.com)
-- [CoinCap](api.coincap.io)
-- [CoinGecko](api.coingecko.com)
+- [Bittrex](https://bittrex.com)
+- [CoinCap](https://coincap.io)
+- [CoinGecko](https://coingecko.com)
 
 ## Installation
 
