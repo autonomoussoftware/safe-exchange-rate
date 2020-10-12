@@ -9,9 +9,16 @@ If any provider is down or failing, a different one from an internal list will b
 
 The following exchange rate pairs are currently supported:
 
+- BAT:USD
 - ETH:USD
+- DAI:USD
 - ETC:USD
+- KNC:USD
+- MANA:USD
 - QTUM:USD
+- USDC:USD
+- WBTC:USD
+- ZRX:USD
 
 Only 100% open and free providers are queried:
 

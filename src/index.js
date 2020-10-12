@@ -16,7 +16,7 @@ const coingecko = require('./providers/coingecko')
  */
 function ignoreFailure(fn) {
   return () =>
-    fn().catch(function(err) {
+    fn().catch(function (err) {
       debug('Failed to obtain rate: %s', err.message)
       return null
     })
@@ -32,12 +32,28 @@ function ignoreFailure(fn) {
  */
 function getExchangeRate(pair) {
   switch (pair) {
+    case 'BAT:USD':
+      return promiseFind(
+        [
+          () => bittrex.getTickerValue('USD-BAT'),
+          () => coincap.getAsset('basic-attention-token'),
+          () => coingecko.getCoinPrice('basic-attention-token')
+        ].map(ignoreFailure)
+      )
     case 'ETH:USD':
       return promiseFind(
         [
           () => bittrex.getTickerValue('USD-ETH'),
           () => coincap.getAsset('ethereum'),
           () => coingecko.getCoinPrice('ethereum')
+        ].map(ignoreFailure)
+      )
+    case 'DAI:USD':
+      return promiseFind(
+        [
+          () => bittrex.getTickerValue('USD-DAI'),
+          () => coincap.getAsset('multi-collateral-dai'),
+          () => coingecko.getCoinPrice('dai')
         ].map(ignoreFailure)
       )
     case 'ETC:USD':
@@ -48,11 +64,49 @@ function getExchangeRate(pair) {
           () => coingecko.getCoinPrice('ethereum-classic')
         ].map(ignoreFailure)
       )
+    case 'KNC:USD':
+      return promiseFind(
+        [
+          () => coincap.getAsset('kyber-network'),
+          () => coingecko.getCoinPrice('kyber-network')
+        ].map(ignoreFailure)
+      )
+    case 'MANA:USD':
+      return promiseFind(
+        [
+          () => bittrex.getTickerValue('USD-MANA'),
+          () => coincap.getAsset('decentraland'),
+          () => coingecko.getCoinPrice('decentraland')
+        ].map(ignoreFailure)
+      )
     case 'QTUM:USD':
       return promiseFind(
         [
           () => coincap.getAsset('qtum'),
           () => coingecko.getCoinPrice('qtum')
+        ].map(ignoreFailure)
+      )
+    case 'USDC:USD':
+      return promiseFind(
+        [
+          () => bittrex.getTickerValue('USD-USDC'),
+          () => coincap.getAsset('usd-coin'),
+          () => coingecko.getCoinPrice('usd-coin')
+        ].map(ignoreFailure)
+      )
+    case 'WBTC:USD':
+      return promiseFind(
+        [
+          () => coincap.getAsset('wrapped-bitcoin'),
+          () => coingecko.getCoinPrice('wrapped-bitcoin')
+        ].map(ignoreFailure)
+      )
+    case 'ZRX:USD':
+      return promiseFind(
+        [
+          () => bittrex.getTickerValue('USD-ZRX'),
+          () => coincap.getAsset('0x'),
+          () => coingecko.getCoinPrice('0x')
         ].map(ignoreFailure)
       )
     default:

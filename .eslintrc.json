@@ -2,5 +2,8 @@
   "extends": [
     "bloq"
   ],
-  "root": true
+  "root": true,
+  "rules": {
+    "complexity": "off"
+  }
 }
