@@ -1,9 +1,11 @@
+os: linux
+dist: bionic
+
 language: node_js
 node_js:
-  - "10"
-  - "8"
-
-cache: npm
+  - '12'
+  - '14'
+  - '10'
 
 if: tag IS blank
 
