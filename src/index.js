@@ -89,9 +89,9 @@ function getExchangeRate(pair) {
     case 'USDC:USD':
       return promiseFind(
         [
-          () => bittrex.getTickerValue('USD-USDC'),
           () => coincap.getAsset('usd-coin'),
-          () => coingecko.getCoinPrice('usd-coin')
+          () => coingecko.getCoinPrice('usd-coin'),
+          () => bittrex.getTickerValue('USD-USDC')
         ].map(ignoreFailure)
       )
     case 'WBTC:USD':
