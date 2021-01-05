@@ -24,7 +24,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bittrex-node": "^1.2.1",
     "coingecko-api": "^1.0.5",
     "debug": "^4.2.0",
